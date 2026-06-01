@@ -3,7 +3,7 @@ Version:        2.5.1
 Release:        1%{?dist}
 Summary:        Real-time satellite tracking and orbit prediction program
 
-License:        GPL-2.0-or-later
+License:        GPL-2.0-only
 URL:            https://github.com/csete/gpredict
 Source0:        https://github.com/csete/gpredict/releases/download/v%{version}/%{name}-%{version}.tar.bz2
 
@@ -17,9 +17,14 @@ BuildRequires:  libcurl-devel
 BuildRequires:  libtool
 BuildRequires:  pkgconfig
 BuildRequires:  hamlib-devel
+BuildRequires:  glib2-devel
+BuildRequires:  shared-mime-info
+GettextRequires gettext
 
 %description
 Gpredict is a real-time satellite tracking and orbit prediction application.
+
+Requires:       gtk3 hamlib libcurl
 
 %prep
 %autosetup -p1
@@ -30,6 +35,20 @@ Gpredict is a real-time satellite tracking and orbit prediction application.
 
 %install
 %make_install
+
+%post
+/sbin/ldconfig
+if [ -x /usr/bin/update-desktop-database ] && [ -x /usr/bin/gtk-update-icon-cache ]; then
+    /usr/bin/update-desktop-database -q 2>/dev/null || :
+    /usr/bin/gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2>/dev/null || :
+fi
+
+%postun
+/sbin/ldconfig
+if [ -x /usr/bin/update-desktop-database ] && [ -x /usr/bin/gtk-update-icon-cache ]; then
+    /usr/bin/update-desktop-database -q 2>/dev/null || :
+    /usr/bin/gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2>/dev/null || :
+fi
 
 %files
 %license COPYING
