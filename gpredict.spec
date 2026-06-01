@@ -61,6 +61,7 @@ fi
 %{_datadir}/applications/gpredict.desktop
 %{_datadir}/pixmaps/gpredict/
 %{_datadir}/icons/hicolor/*/apps/gpredict.png
+%{_datadir}/icons/hicolor/scalable/apps/gpredict.svg
 %{_datadir}/metainfo/dk.oz9aec.Gpredict.metainfo.xml
 %{_datadir}/locale/*/LC_MESSAGES/gpredict.mo
 %{_mandir}/man1/gpredict.1*
