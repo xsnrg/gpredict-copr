@@ -45,4 +45,4 @@ Gpredict is a real-time satellite tracking and orbit prediction application.
 
 %changelog
 * Mon Jun 01 2026 Jim Howard <xsnrg@users.noreply.github.com> - 2.5.1-1
-- Update to 2.5.1 with broad packaging for icons, pixmaps, locales and metainfo
+- Update to 2.5.1 with comprehensive packaging for pixmaps, icons, metainfo and locales
