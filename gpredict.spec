@@ -31,10 +31,14 @@ Gpredict is a real-time satellite tracking and orbit prediction application.
 %install
 %make_install
 
-# Ensure icon is installed in standard location
+# Robust icon installation — try multiple possible locations in upstream
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/48x48/apps
-install -m 644 data/gpredict-icon.png %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gpredict.png || true
-install -m 644 pixmaps/gpredict.png %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gpredict.png 2>/dev/null || true
+for icon in data/gpredict-icon.png pixmaps/gpredict.png icons/gpredict.png; do
+    if [ -f "$icon" ]; then
+        install -m 644 "$icon" %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gpredict.png
+        break
+    fi
+done
 
 # Update desktop file
 desktop-file-edit --set-icon=gpredict %{buildroot}%{_datadir}/applications/gpredict.desktop || true
@@ -53,4 +57,4 @@ desktop-file-edit --set-icon=gpredict %{buildroot}%{_datadir}/applications/gpred
 
 %changelog
 * Mon Jun 01 2026 Jim Howard <xsnrg@users.noreply.github.com> - 2.5.1-1
-- Update to 2.5.1 + robust icon handling
+- Update to 2.5.1 + robust icon location handling
