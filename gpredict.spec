@@ -35,6 +35,10 @@ Requires:       gtk3 hamlib libcurl
 %install
 %make_install
 
+# Install icon to hicolor theme for desktop integration
+mkdir -p %{buildroot}%{_datadir}/icons/hicolor/48x48/apps
+install -p -m 644 pixmaps/logos/gpredict_icon_color.png %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gpredict.png
+
 %post
 /sbin/ldconfig
 if [ -x /usr/bin/update-desktop-database ] && [ -x /usr/bin/gtk-update-icon-cache ]; then
