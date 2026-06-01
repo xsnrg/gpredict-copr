@@ -19,7 +19,6 @@ BuildRequires:  pkgconfig
 BuildRequires:  hamlib-devel
 BuildRequires:  glib2-devel
 BuildRequires:  shared-mime-info
-GettextRequires gettext
 
 %description
 Gpredict is a real-time satellite tracking and orbit prediction application.
