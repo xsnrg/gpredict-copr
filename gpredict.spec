@@ -1,5 +1,5 @@
 Name:           gpredict
-Version:        2.5.1
+Version:        2.6
 Release:        1%{?dist}
 Summary:        Real-time satellite tracking and orbit prediction program
 
@@ -67,5 +67,8 @@ fi
 %{_mandir}/man1/gpredict.1*
 
 %changelog
+* Wed Sep 09 2026 Jim Howard <xsnrg@users.noreply.github.com> - 2.6-1
+- Update to 2.6
+
 * Mon Jun 01 2026 Jim Howard <xsnrg@users.noreply.github.com> - 2.5.1-1
 - Update to 2.5.1 + include locale files
