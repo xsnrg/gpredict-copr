@@ -27,4 +27,4 @@ there is no application source, tests, CI, or build system in this repo.
 
 ## Workflow
 - Commit directly to master; commit style is lowercase, e.g. `fix spec: <description>`.
-- Don't commit build artifacts, tarballs, or `.opencode/` tooling files.
+- Don't commit build artifacts or tarballs. `.opencode/` is gitignored (root `.gitignore`).
